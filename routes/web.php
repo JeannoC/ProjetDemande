@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DemandeurController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/index', [DashboardController::class, 'index']);
+Route::get('/profile', [DemandeurController::class, 'profile'])->name("profile");
+Route::get('/connexion', [DemandeurController::class, 'signin'])->name("connexion");
+Route::get('/inscription', [DemandeurController::class, 'signup'])->name("inscription");
